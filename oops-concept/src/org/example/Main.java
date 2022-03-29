@@ -14,10 +14,11 @@ public class Main {
 			elevator.goUp();
 		}
 		
-
+		MyDate myDate=new MyDate();
+		
 	}
 	
-	MyDate myDate=new MyDate();
+	
 
-
+	
 }
