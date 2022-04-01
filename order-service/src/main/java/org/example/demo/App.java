@@ -2,6 +2,7 @@ package org.example.demo;
 
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Map.Entry;
 import java.util.Scanner;
 
 import org.example.demo.model.Order;
@@ -51,13 +52,13 @@ public class App
 				orderValue=scanner.nextDouble();
 				System.out.print("Enter Order Date:(dd/mm/yyyy): ");
 				orderDate=scanner.next();
-				Order tempOrder=orderService.createOrder(new Order(orderName, orderValue, orderDate));
-				System.out.println(tempOrder+" Created Sucessfully...");
+				orderService.createOrder(new Order(orderName, orderValue, orderDate));
+				System.out.println(" Order Created Sucessfully...");
 				break;
 			case 2:
-				Collection<Order> collection=orderService.fetchAllOrders();
+				Collection<Entry<Integer,Order>> collection=orderService.fetchAllOrders();
 				
-				Iterator<Order> iterator=collection.iterator();
+				Iterator<Entry<Integer, Order>> iterator=collection.iterator();
 				while(iterator.hasNext())
 				{
 					System.out.println(iterator.next());
@@ -66,7 +67,7 @@ public class App
 			case 3:
 				System.out.println("Enter Order Id: ");
 				int id=scanner.nextInt();
-				tempOrder=orderService.findOrderById(id);
+				Order tempOrder=orderService.findOrderById(id);
 				System.out.println(tempOrder);
 				break;
 			case 4:

@@ -3,7 +3,9 @@ package org.example.demo.dao;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Random;
+import java.util.Set;
 import java.util.UUID;
 
 import org.example.demo.model.Order;
@@ -17,17 +19,17 @@ public class OrderDaoIMpl implements OrderDao {
 	}
 
 	@Override
-	public Order createOrder(Order order) {
+	public void createOrder(Order order) {
 		// TODO Auto-generated method stub
 		map.put(/*UUID.randomUUID().toString()*/new Random().nextInt(1000), order);
-		System.out.println(map);
-		return order;
+	
+		
 	}
 
 	@Override
-	public Collection<Order> fetchAllOrders() {
-		Collection<Order> collection = map.values();
-		return collection;
+	public Set<Entry<Integer,Order>> fetchAllOrders() {
+		Set<Entry<Integer, Order>> set=map.entrySet();
+		return set;
 	}
 
 	@Override

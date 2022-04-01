@@ -1,6 +1,8 @@
 package org.example.demo.service;
 
 import java.util.Collection;
+import java.util.Set;
+import java.util.Map.Entry;
 
 import org.example.demo.dao.OrderDao;
 import org.example.demo.dao.OrderDaoIMpl;
@@ -15,13 +17,13 @@ public class OrderServiceImpl implements OrderService{
 	}
 
 	@Override
-	public Order createOrder(Order order) {
+	public void createOrder(Order order) {
 		
-		return orderDao.createOrder(order);
+		 orderDao.createOrder(order);
 	}
 
 	@Override
-	public Collection<Order> fetchAllOrders() {
+	public Set<Entry<Integer,Order>>  fetchAllOrders() {
 		
 		return orderDao.fetchAllOrders();
 	}
