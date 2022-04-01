@@ -27,7 +27,7 @@ public class OrderServiceImpl implements OrderService{
 	}
 
 	@Override
-	public Order findOrderById(String id) {
+	public Order findOrderById(int id) {
 		// TODO Auto-generated method stub
 		return orderDao.findOrderById(id);
 	}

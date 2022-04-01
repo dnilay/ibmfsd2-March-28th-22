@@ -3,22 +3,23 @@ package org.example.demo.dao;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.UUID;
 
 import org.example.demo.model.Order;
 
 public class OrderDaoIMpl implements OrderDao {
 
-	private final Map<String, Order> map;
+	private final Map<Integer, Order> map;
 
 	public OrderDaoIMpl() {
-		map = new HashMap<String, Order>();
+		map = new HashMap<Integer, Order>();
 	}
 
 	@Override
 	public Order createOrder(Order order) {
 		// TODO Auto-generated method stub
-		map.put(UUID.randomUUID().toString(), order);
+		map.put(/*UUID.randomUUID().toString()*/new Random().nextInt(1000), order);
 		System.out.println(map);
 		return order;
 	}
@@ -30,7 +31,7 @@ public class OrderDaoIMpl implements OrderDao {
 	}
 
 	@Override
-	public Order findOrderById(String id) {
+	public Order findOrderById(int id) {
 		Order order = map.get(id);
 		return order;
 	}

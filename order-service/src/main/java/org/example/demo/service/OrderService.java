@@ -8,6 +8,6 @@ public interface OrderService {
 
 	public Order createOrder(Order order);
 	public Collection<Order> fetchAllOrders();
-	public Order findOrderById(String id);
+	public Order findOrderById(int id);
 
 }

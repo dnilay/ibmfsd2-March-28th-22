@@ -65,7 +65,7 @@ public class App
 				break;
 			case 3:
 				System.out.println("Enter Order Id: ");
-				String id=scanner.next();
+				int id=scanner.nextInt();
 				tempOrder=orderService.findOrderById(id);
 				System.out.println(tempOrder);
 				break;
