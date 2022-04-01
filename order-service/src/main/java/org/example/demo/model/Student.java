@@ -1,6 +1,8 @@
 package org.example.demo.model;
 
-public class Student implements Comparable {
+import java.util.Comparator;
+
+public class Student  {
 
 	private int studentId;
 	private String studentName;
@@ -46,20 +48,15 @@ public class Student implements Comparable {
 		return "Student [studentId=" + studentId + ", studentName=" + studentName + ", CGPA=" + CGPA + "]";
 	}
 
-	@Override
-	public int compareTo(Object o) {
-		Student student = (Student) o;
-		if (this.getCGPA() > student.getCGPA()) {
-			return -1;
-		}
-		else if (this.getCGPA() < student.getCGPA()) {
-			return 1;
-		}
-		else {
-			return 0;
-		}
-		
+	/*
+	 * @Override public int compareTo(Object o) { Student student = (Student) o; if
+	 * (this.getCGPA() > student.getCGPA()) { return -1; } else if (this.getCGPA() <
+	 * student.getCGPA()) { return 1; } else { return 0; }
+	 * 
+	 * 
+	 * }
+	 */
 
-	}
+
 
 }

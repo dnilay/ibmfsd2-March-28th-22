@@ -1,6 +1,6 @@
 package org.example.demo.model;
 
-public class Order {
+public class Order implements Comparable{
 
 	private String orderName;
 	private double orderValue;
@@ -44,6 +44,24 @@ public class Order {
 	@Override
 	public String toString() {
 		return "Order [orderName=" + orderName + ", orderValue=" + orderValue + ", orderDate=" + orderDate + "]";
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		Order order=(Order)o;
+		if(this.orderValue<order.orderValue)
+		{
+			return -1;
+		}
+		else if(this.orderValue>order.orderValue)
+		{
+			return 1;
+		}
+		else
+		{
+			return 0;
+		}
+		
 	}
 
 }
