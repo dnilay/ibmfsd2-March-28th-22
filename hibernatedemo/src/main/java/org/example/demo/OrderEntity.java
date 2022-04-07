@@ -45,4 +45,10 @@ public class OrderEntity {
 		this.orderName = orderName;
 	}
 
+
+	@Override
+	public String toString() {
+		return "OrderEntity [orderId=" + orderId + ", orderName=" + orderName + "]";
+	}
+
 }
