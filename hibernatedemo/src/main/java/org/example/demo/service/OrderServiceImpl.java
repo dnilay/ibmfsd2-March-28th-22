@@ -34,4 +34,17 @@ public class OrderServiceImpl implements OrderService{
 		return orderRepository.findOrderById(id);
 	}
 
+	@Override
+	public void updateOrderByOrderId(int id) {
+		orderRepository.updateOrderByOrderId(id);
+		
+	}
+
+	@Override
+	public void deleteOrderById(int id) {
+		// TODO Auto-generated method stub
+		orderRepository.deleteOrderById(id);
+		
+	}
+
 }

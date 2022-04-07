@@ -1,6 +1,7 @@
 package org.example.demo.dao;
 
 import java.util.List;
+import java.util.Scanner;
 
 import javax.persistence.TypedQuery;
 
@@ -13,7 +14,7 @@ public class OrderRepositoryImpl implements OrderRepository {
 	
 	private SessionFactory sessionFactory;
 	private Session session;
-	
+	private Scanner scanner=new Scanner(System.in);
 
 	public OrderRepositoryImpl() {
 	
@@ -49,6 +50,44 @@ public class OrderRepositoryImpl implements OrderRepository {
 		OrderEntity orderEntity=session.get(OrderEntity.class, id);
 		session.getTransaction().commit();
 		return orderEntity;
+	}
+
+	@Override
+	public void updateOrderByOrderId(int id) {
+		OrderEntity orderEntity=findOrderById(id);
+		if(orderEntity==null)
+		{
+			System.out.println("order not found.");
+		}
+		else
+		{
+			System.out.println("Order Found...");
+			System.out.print("Enter New Order Name: ");
+			String name=scanner.next();
+			orderEntity.setOrderName(name);
+			session.getTransaction().begin();
+			session.merge(orderEntity);
+			session.getTransaction().commit();
+			System.out.println("Updated sucessfully..");
+		}
+		
+	}
+
+	@Override
+	public void deleteOrderById(int id) {
+		OrderEntity orderEntity=findOrderById(id);
+		if(orderEntity==null)
+		{
+			System.out.println("order Not Found.");
+		}
+		else
+		{
+			session.getTransaction().begin();
+			session.remove(orderEntity);
+			session.getTransaction().commit();
+			System.out.println("deletion sucessed.");
+		}
+		
 	}
 
 }

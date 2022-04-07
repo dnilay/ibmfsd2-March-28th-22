@@ -10,5 +10,8 @@ public interface OrderRepository {
 	public List<OrderEntity> getAllOrders();
 	public OrderEntity findOrderById(int id);
 	
+	public void updateOrderByOrderId(int id);
+	
+	public void deleteOrderById(int id);
 
 }
