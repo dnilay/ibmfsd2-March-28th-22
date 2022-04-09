@@ -1,9 +1,10 @@
 package org.example.demo;
 
+import org.example.demo.config.SpringConfig;
 import org.example.demo.model.Department;
 import org.example.demo.model.Employee;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
  * Hello world!
@@ -17,8 +18,8 @@ public class App
     {
        try {
     	   
-    	   context = new ClassPathXmlApplicationContext("applicationContext.xml");
-    	   Employee myEmployee=context.getBean("emp",Employee.class);
+			context = new AnnotationConfigApplicationContext(SpringConfig.class);
+    	   Employee myEmployee=context.getBean("employee",Employee.class);
     	   Department department=context.getBean("department",Department.class);
 			/*
 			 * department.setDepartmentName("Accountind");
