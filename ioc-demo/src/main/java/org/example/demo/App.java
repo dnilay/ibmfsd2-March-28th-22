@@ -20,10 +20,23 @@ public class App
     	   context = new ClassPathXmlApplicationContext("applicationContext.xml");
     	   Coach myCoach=context.getBean("theCoach",Coach.class);
     	   System.out.println(myCoach.getDailyWorkOut());
+    	   System.out.println(myCoach.getDailyFortune());
     	   
-    	   Employee tempEmployee=context.getBean("employee",Employee.class);
-    	   System.out.println(tempEmployee);
-		
+			/*
+			 * Employee tempEmployee=context.getBean("employee",Employee.class);
+			 * System.out.println(tempEmployee);
+			 * 
+			 * tempEmployee.setFirstName("Sachin"); tempEmployee.setLastName("tendulkar");
+			 * tempEmployee.setEmail("sachin@email.com"); System.out.println(tempEmployee);
+			 * Employee tempEmployee1=context.getBean("employee",Employee.class);
+			 * System.out.println(tempEmployee1);
+			 * 
+			 * tempEmployee1.setFirstName("Sachin1");
+			 * tempEmployee1.setLastName("tendulkar1");
+			 * tempEmployee1.setEmail("sachin1@email.com");
+			 * System.out.println(tempEmployee1);
+			 * System.out.println(tempEmployee==tempEmployee1);
+			 */
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
