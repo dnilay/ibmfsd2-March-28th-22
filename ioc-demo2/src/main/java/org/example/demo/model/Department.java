@@ -1,0 +1,37 @@
+package org.example.demo.model;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Department {
+	
+	private String departmentName="Account";
+	private String location="India";
+	public Department() {
+		super();
+	}
+	public Department(String departmentName, String location) {
+		super();
+		this.departmentName = departmentName;
+		this.location = location;
+	}
+	public String getDepartmentName() {
+		return departmentName;
+	}
+	public void setDepartmentName(String departmentName) {
+		this.departmentName = departmentName;
+	}
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	@Override
+	public String toString() {
+		return "Department [departmentName=" + departmentName + ", location=" + location + "]";
+	}
+	
+	
+
+}

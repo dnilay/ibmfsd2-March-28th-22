@@ -1,5 +1,6 @@
 package org.example.demo.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component(value = "emp")
@@ -8,15 +9,26 @@ public class Employee {
 	private int employeeId;
 	private String employeeName;
 	private double salary;
+	
+	//attribuite level DI
+	//@Autowired
+	private Department department;
+	
 	public Employee() {
 		super();
 	}
-	public Employee(int employeeId, String employeeName, double salary) {
-		super();
-		this.employeeId = employeeId;
-		this.employeeName = employeeName;
-		this.salary = salary;
-	}
+	
+	
+	//constructor injection
+	
+	 // @Autowired 
+	  public Employee(Department department) {
+	  
+	  this.department = department; }
+	 
+
+
+
 	public int getEmployeeId() {
 		return employeeId;
 	}
@@ -35,10 +47,29 @@ public class Employee {
 	public void setSalary(double salary) {
 		this.salary = salary;
 	}
+	
+	
+	public Department getDepartment() {
+		return department;
+	}
+
+
+	//setter DI
+	//@Autowired
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+
+
 	@Override
 	public String toString() {
-		return "Employee [employeeId=" + employeeId + ", employeeName=" + employeeName + ", salary=" + salary + "]";
+		return "Employee [employeeId=" + employeeId + ", employeeName=" + employeeName + ", salary=" + salary
+				+ ", department=" + department + "]";
 	}
+
+
+
 	
 
 }
