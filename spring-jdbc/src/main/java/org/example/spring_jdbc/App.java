@@ -1,6 +1,7 @@
 package org.example.spring_jdbc;
 
 import java.sql.SQLException;
+import java.util.Collection;
 import java.util.Scanner;
 
 import org.example.spring_jdbc.config.SpringConfig;
@@ -24,12 +25,21 @@ public class App
     	
     	EmployeeService employeeService=context.getBean("employeeService",EmployeeService.class);
     	
-    	System.out.println("Enter Employee Name: ");
-    	String name=scanner.next();
-    	Employee employee=new Employee(name);
+    	//System.out.println("Enter Employee Name: ");
+    	System.out.println("Enter Employee Id: ");
+    //	String name=scanner.next();
+    	//Employee employee=new Employee(name);
+    	int id=scanner.nextInt();
     	try {
-			employeeService.createEmployee(employee);
-			System.out.println("employee created sucessfully......");
+			//employeeService.createEmployee(employee);
+    		
+			//System.out.println("employee created sucessfully......");
+    		System.out.println(employeeService.findEmployeeById(id));
+    		Collection<Employee> collection=employeeService.getAllEmployees();
+    		for(Employee e:collection)
+    		{
+    			System.out.println(e);
+    		}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
