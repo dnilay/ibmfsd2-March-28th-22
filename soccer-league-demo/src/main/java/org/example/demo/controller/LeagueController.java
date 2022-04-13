@@ -79,7 +79,7 @@ public class LeagueController extends HttpServlet {
 		if(!erros.isEmpty())
 		{
 			req.setAttribute("ERROR", erros);
-			RequestDispatcher view=req.getRequestDispatcher("add_league.view");
+			RequestDispatcher view=req.getRequestDispatcher("add_league.jsp");
 			view.forward(req, resp);
 		}
 		else
