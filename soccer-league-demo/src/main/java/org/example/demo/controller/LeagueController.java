@@ -46,6 +46,8 @@ public class LeagueController extends HttpServlet {
 
 	private void doProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, SQLException {
 		
+	
+		
 		List<String> erros=new ArrayList<String>();
 		String year=req.getParameter("year");
 		int iYear=0;
@@ -77,7 +79,7 @@ public class LeagueController extends HttpServlet {
 		if(!erros.isEmpty())
 		{
 			req.setAttribute("ERROR", erros);
-			RequestDispatcher view=req.getRequestDispatcher("error.view");
+			RequestDispatcher view=req.getRequestDispatcher("add_league.view");
 			view.forward(req, resp);
 		}
 		else
