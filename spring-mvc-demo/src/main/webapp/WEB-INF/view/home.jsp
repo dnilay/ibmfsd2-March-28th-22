@@ -11,6 +11,8 @@
     <title>home page</title>
 </head>
 <body>
-hello world Spring MVC...
+<h1>Show Form</h1>
+<hr/>
+<a href="showForm">ShowForm</a>
 </body>
 </html>
