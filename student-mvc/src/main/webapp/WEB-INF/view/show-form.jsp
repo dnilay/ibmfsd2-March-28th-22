@@ -16,6 +16,11 @@
 
     <form:input path="firstName"/><br/>
     <form:input path="lastName"/><br/>
+    <form:select path="country" >
+        <form:option value="India" label="India"/>
+        <form:option value="France" label="France"/>
+        <form:option value="Brazil" label="Brazil"/>
+    </form:select><br/>
     <input type="submit" value="create student">
 
 </form:form>
