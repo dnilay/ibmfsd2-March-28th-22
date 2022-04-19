@@ -2,12 +2,11 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Customer;
 import com.example.demo.repository.CustomerRepository;
+import com.example.demo.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,18 +14,33 @@ import java.util.List;
 @RequestMapping("/customers")
 public class CustomerController {
 
-    private final CustomerRepository customerRepository;
+    private final CustomerService customerService;
 
     @Autowired
-    public CustomerController(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
+    public CustomerController(CustomerService customerService) {
+        this.customerService=customerService;
     }
 
     @GetMapping("/list")
     public String getAllCustomers(Model model)
     {
-        List<Customer> list=customerRepository.findAll();
+        List<Customer> list=customerService.getAllCustomer();
         model.addAttribute("customers",list);
         return "customer-list";
+    }
+    @GetMapping("/showFormForAdd")
+    public String showFormForAdd(Model theModel)
+    {
+        Customer theCustomer=new Customer();
+        theModel.addAttribute("customer",theCustomer);
+        return "customer-form";
+    }
+
+    @PostMapping("/save")
+    public String save(@ModelAttribute("customer")Customer customer)
+    {
+        Customer c=customerService.createCustomer(customer);
+        System.out.println(c);
+        return "redirect:/customers/list";
     }
 }
