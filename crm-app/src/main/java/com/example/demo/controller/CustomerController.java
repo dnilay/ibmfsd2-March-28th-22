@@ -43,4 +43,11 @@ public class CustomerController {
         System.out.println(c);
         return "redirect:/customers/list";
     }
+
+    @GetMapping("/delete")
+    public String deleById(@RequestParam("id") int id)
+    {
+        customerService.deleteCustomer(id);
+        return "redirect:/customers/list";
+    }
 }

@@ -22,4 +22,10 @@ public class CustomerServiceImpl implements CustomerService{
     public Customer createCustomer(Customer customer) {
         return customerRepository.save(customer);
     }
+
+    @Override
+    public void deleteCustomer(int id) {
+        Customer customer=customerRepository.findById(id).get();
+        customerRepository.delete(customer);
+    }
 }
