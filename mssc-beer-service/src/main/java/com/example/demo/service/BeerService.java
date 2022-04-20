@@ -8,5 +8,6 @@ public interface BeerService {
 	
 	public List<Beer> getAllBeer();
 	public Beer getBeerById(String beerId);
+	public Beer createBeer(Beer beer);
 
 }

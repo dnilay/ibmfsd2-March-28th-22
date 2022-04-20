@@ -52,4 +52,12 @@ public class BeerRepositoryImpl implements BeerRepository {
 		return beer;
 	}
 
+
+
+	@Override
+	public Beer createBeer(Beer beer) {
+		beers.add(beer);
+		return beer;
+	}
+
 }

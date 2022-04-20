@@ -26,4 +26,10 @@ public class BeerServiceImpl implements BeerService{
 		return beerRepository.getBeerById(beerId);
 	}
 
+	@Override
+	public Beer createBeer(Beer beer) {
+		
+		return beerRepository.createBeer(beer);
+	}
+
 }
