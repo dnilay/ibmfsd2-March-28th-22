@@ -26,6 +26,14 @@
     <td th:text="${customer.lastName}" />
     <td th:text="${customer.email}" />
     <td>
+      <a th:href="@{/customers/showFormForUpdate(id=${customer.id})}"
+         class="btn btn-info btn-sm">
+        Show Details
+      </a>
+      <a th:href="@{/customers/showFormForUpdate(id=${customer.id})}"
+         class="btn btn-info btn-sm">
+        Update
+      </a>
       <a th:href="@{/customers/delete(id=${customer.id})}"
          class="btn btn-danger btn-sm"
          onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
