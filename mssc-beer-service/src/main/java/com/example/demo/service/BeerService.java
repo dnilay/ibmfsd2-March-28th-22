@@ -7,5 +7,6 @@ import com.example.demo.model.Beer;
 public interface BeerService {
 	
 	public List<Beer> getAllBeer();
+	public Beer getBeerById(String beerId);
 
 }

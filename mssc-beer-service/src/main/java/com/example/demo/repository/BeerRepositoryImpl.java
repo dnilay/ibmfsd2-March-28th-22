@@ -31,4 +31,25 @@ public class BeerRepositoryImpl implements BeerRepository {
 		return beers;
 	}
 
+
+
+	@Override
+	public Beer getBeerById(String beerId) {
+		
+		Beer beer=new Beer();
+		for(Beer b:beers)
+		{
+			if(b.getBeerId().equals(beerId))
+			{
+				beer=b;
+				beer.setBeerType(b.getBeerId());
+				beer.setBeerType(b.getBeerType());
+				beer.setCostPerUnit(b.getCostPerUnit());
+				break;
+			}
+		}
+		
+		return beer;
+	}
+
 }

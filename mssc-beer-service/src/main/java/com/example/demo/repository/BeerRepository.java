@@ -7,5 +7,7 @@ import com.example.demo.model.Beer;
 public interface BeerRepository {
 	
 	public List<Beer> getAllBeer();
+	
+	public Beer getBeerById(String beerId);
 
 }

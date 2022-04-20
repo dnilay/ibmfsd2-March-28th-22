@@ -20,4 +20,10 @@ public class BeerServiceImpl implements BeerService{
 		return beerRepository.getAllBeer();
 	}
 
+	@Override
+	public Beer getBeerById(String beerId) {
+		
+		return beerRepository.getBeerById(beerId);
+	}
+
 }

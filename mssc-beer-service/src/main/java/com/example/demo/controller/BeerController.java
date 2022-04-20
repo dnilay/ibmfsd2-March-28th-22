@@ -3,8 +3,13 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Beer;
@@ -24,10 +29,17 @@ public class BeerController {
 		return "beer-service is up and running on port:"+environment.getProperty("local.server.port");
 	}
 	
-	@GetMapping("/beers")
-	public List<Beer> getAllBeer()
+	@RequestMapping(method = RequestMethod.GET, produces = "application/json",value = "/beers")
+	@ResponseStatus(value = HttpStatus.OK)
+	public ResponseEntity<List<Beer>> getAllBeer()
 	{
-		return beerService.getAllBeer();
+		return new ResponseEntity<List<Beer>>(beerService.getAllBeer(),HttpStatus.OK);
+	}
+	
+	@GetMapping("/beers/{beerId}")
+	public ResponseEntity<Beer> getBeerById(@PathVariable("beerId") String beerid)
+	{
+		return ResponseEntity.ok(beerService.getBeerById(beerid));
 	}
 	
 	
