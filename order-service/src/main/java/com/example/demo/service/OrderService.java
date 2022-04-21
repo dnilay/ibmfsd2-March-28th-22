@@ -11,5 +11,9 @@ public interface OrderService {
 	public Iterable<OrderEntity> getAllOrders();
 	
 	public Optional<OrderEntity> findOrderByOrderid(String orderId);
+	
+	public OrderEntity updateOrderByOrderId(String orderId,OrderEntity orderEntity);
+	
+	public void deleteOrderByOrderId(String orderId);
 
 }
