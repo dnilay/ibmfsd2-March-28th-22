@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.OrderEntity;
@@ -22,6 +24,12 @@ public class OrderServiceImpl implements OrderService{
 	public Iterable<OrderEntity> getAllOrders() {
 		// TODO Auto-generated method stub
 		return orderRepository.findAll();
+	}
+
+	@Override
+	public Optional<OrderEntity> findOrderByOrderid(String orderId) {
+		// TODO Auto-generated method stub
+		return orderRepository.findByOrderId(orderId);
 	}
 
 }

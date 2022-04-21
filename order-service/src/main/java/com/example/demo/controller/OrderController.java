@@ -1,8 +1,11 @@
 package com.example.demo.controller;
 
+import java.util.Optional;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,6 +30,15 @@ public class OrderController {
 	public ResponseEntity<?> fetchOrdes()
 	{
 		return ResponseEntity.ok(orderService.getAllOrders());
+	}
+	
+	@GetMapping("/orders/{orderId}")
+	public ResponseEntity<Optional<OrderEntity>> fetchOrderByOrderId(@PathVariable("orderId") String orderId)
+	{
+		Optional<OrderEntity> order=orderService.findOrderByOrderid(orderId);
+		
+		return ResponseEntity.ok(order);
+		
 	}
 
 }
