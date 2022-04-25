@@ -8,6 +8,7 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,7 +39,7 @@ public class UserController {
 		return ResponseEntity.ok("user-ws is up and running on port: " + environment.getProperty("local.server.port"));
 	}
 
-	@PostMapping("/users")
+	@PostMapping(value="/users",consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE} )
 	public ResponseEntity<UserResponseModel> createUser(@RequestBody UserRequestModel userRequestModel) {
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 		UserDto userDto = modelMapper.map(userRequestModel, UserDto.class);
@@ -48,7 +49,7 @@ public class UserController {
 
 	}
 
-	@GetMapping("/users")
+	@GetMapping(value="/users", produces = MediaType.APPLICATION_XML_VALUE)
 	public ResponseEntity<List<UserResponseModel>> getAllUsers() {
 		List<UserDto> dtos = userService.getAllUsers();
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
@@ -59,7 +60,7 @@ public class UserController {
 		return ResponseEntity.ok(users);
 	}
 
-	@GetMapping("/users/{userId}")
+	@GetMapping(value="/users/{userId}",produces = MediaType.APPLICATION_XML_VALUE)
 	public ResponseEntity<UserResponseModel> getUserByUserId(@PathVariable("userId") String userId) {
 		UserEntity userEntity = userService.findUserByUserId(userId);
 		if (userEntity == null) {

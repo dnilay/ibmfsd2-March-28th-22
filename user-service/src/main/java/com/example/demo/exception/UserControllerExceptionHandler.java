@@ -8,9 +8,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class UserControllerExceptionHandler {
 	@ExceptionHandler
-	public ResponseEntity<ErrorResponseModel> handleUserNotFoundException(UserNotFoundException e)
-	{
-		ErrorResponseModel error=new ErrorResponseModel();
+	public ResponseEntity<ErrorResponseModel> handleUserNotFoundException(UserNotFoundException e) {
+		ErrorResponseModel error = new ErrorResponseModel();
 		error.setMesasge(e.getMessage());
 		error.setErrorCode(HttpStatus.NOT_FOUND.value());
 		error.setErrorTime(System.currentTimeMillis());
