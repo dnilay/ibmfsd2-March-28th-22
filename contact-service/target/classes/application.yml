@@ -1,5 +1,5 @@
 server:
-  port: 9090
+  port: 0
 spring:
   application:
     name: contact-ws
@@ -12,14 +12,20 @@ spring:
       enabled: true
       settings:
         web-allow-others: true
+  cloud:
+    config:
+      uri:
+      - http://localhost:2222
+      enabled: false
+  boot:
+    admin:
+      client:
+        url:
+        - http://localhost:5000
 eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka
   instance:
     prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 management:
   endpoints:
     web:
