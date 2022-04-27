@@ -13,18 +13,19 @@ import lombok.AllArgsConstructor;
 @RestController
 @AllArgsConstructor
 public class Microservice1Controller {
-	
+
 	private final RestTemplate restTemplate;
-	
+
 	@GetMapping("/ms1/callms2")
-	public ResponseEntity<?> callMicroService2(@RequestParam("name") String name,@RequestParam("age") int age)
-	{
-		PersonProxy proxy=restTemplate.getForObject("http://localhost:9091/ms2/"+name+"/"+age, PersonProxy.class);
-		
+	public ResponseEntity<?> callMicroService2(@RequestParam("name") String name, @RequestParam("age") int age) {
+		PersonProxy proxy = restTemplate.getForObject("http://localhost:8888/MS-2-WS/ms2/" + name + "/" + age,
+				PersonProxy.class);
+
 		return ResponseEntity.ok(proxy);
 	}
+
 	{
-		
+
 	}
 
 }
