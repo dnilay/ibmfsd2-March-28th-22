@@ -1,0 +1,14 @@
+server:
+  port: 5000
+spring:
+  application:
+    name: user-service
+  datasource:
+    url: jdbc:mysql://database-1.coffgmb5sava.ap-southeast-1.rds.amazonaws.com:3306/hr
+    username: admin
+    password: admin1234
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+
