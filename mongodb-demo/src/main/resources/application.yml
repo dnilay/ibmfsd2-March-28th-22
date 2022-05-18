@@ -1,0 +1,7 @@
+server:
+  port: 9090
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://user1:12345@cluster0.vomr4.mongodb.net/?retryWrites=true&w=majority
+      database: playground
